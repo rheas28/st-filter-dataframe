@@ -88,4 +88,4 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 df = pd.read_csv(
     "https://docs.google.com/spreadsheets/d/1KYrTSZZbjEO5WDEG-6bsqkZHoZ3G1FGmTcTttuZpJOg/gviz/tq?tqx=out:csv&sheet=memd"
 )
-st.dataframe(filter_dataframe(df))
+st.dataframe(filter_dataframe(df).style.hide_index())
