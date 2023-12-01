@@ -6,7 +6,7 @@ from pandas.api.types import (
     is_numeric_dtype,
     is_object_dtype,
 )
-from streamlit_gsheets import GSheetsConnection
+
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -85,8 +85,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# Create a connection object.
-conn = st.connection("gsheets", type=GSheetsConnection)
-
-df = conn.read()
+df = pd.read_csv(
+    "https://docs.google.com/spreadsheets/d/1KYrTSZZbjEO5WDEG-6bsqkZHoZ3G1FGmTcTttuZpJOg/gviz/tq?tqx=out:csv&sheet=memd"
+)
 st.dataframe(filter_dataframe(df))
